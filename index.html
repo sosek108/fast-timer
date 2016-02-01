@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Fast Timer - WordBusters</title>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.rangeSlider.js"></script>
+    <script src="js/own.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="css/angular.rangeSlider.css"/>
+
+    <link rel="stylesheet" href="css/own.css"/>
+</head>
+<body ng-app="app">
+    <div class="container" ng-controller="timerCtrl as timer" ng-class="{
+                default: timer.MIN > timer.passed,
+                minTime: timer.MID > timer.passed && timer.MIN <= timer.passed,
+                midTime: timer.MAX > timer.passed && timer.MID <= timer.passed,
+                maxTime: timer.MAX <= timer.passed
+            }">
+            <div class="control-panel">
+                <button class="btn btn-success" ng-click="timer.start()">Start!</button>
+                <button class="btn btn-danger" ng-click="timer.stop()">Stop!</button>
+                <div range-slider min="60" step="30" max="900" model-min="timer.MIN" model-max="timer.MAX" filter="sec2str" show-values="true" ng-class="{hidden: timer.interval}"></div>
+            </div>
+
+            <div class="timer-show" >
+                {{ timer.passed|sec2str }}
+            </div>
+
+            <div class="shortcuts" ng-class="{hidden: timer.interval}">
+                <button class="btn btn-default" ng-click="timer.MIN = 60; timer.MAX = 120">1/2</button>
+                <button class="btn btn-default" ng-click="timer.MIN = 120; timer.MAX = 180">2/3</button>
+                <button class="btn btn-default" ng-click="timer.MIN = 60*4; timer.MAX = 60*6">4/6</button>
+                <button class="btn btn-default" ng-click="timer.MIN = 60*5; timer.MAX = 60*7">5/7</button>
+                <button class="btn btn-default" ng-click="timer.MIN = 600; timer.MAX = 60*15">10/15</button>
+            </div>
+    </div>
+</body>
+</html>
