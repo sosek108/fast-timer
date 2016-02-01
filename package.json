@@ -1,0 +1,24 @@
+{
+  "name": "fast-timer",
+  "version": "1.0.0",
+  "description": "Simple timer for Toastmasters Club's events.",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.4.9",
+    "jquery": "^2.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sosek108/fast-timer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sosek108/fast-timer/issues"
+  },
+  "homepage": "https://github.com/sosek108/fast-timer"
+}
